@@ -1,5 +1,5 @@
 // Premi divisi in due categorie
-const highPrizes = ["gratta e vinci", "25€", "50€", "75€", "100€"]; // Premi maggiori dal più scarso
+const highPrizes = ["Gratta e Vinci", "25€", "50€", "75€", "100€"]; // Premi maggiori dal più scarso
 const lowPrizes = ["du café", "du fell d pan", "du fell d prsutt", "du mustacciuol", "du turrun"]; // Premi minori dal più scarso
 
 // Elementi del DOM
@@ -46,16 +46,14 @@ function createBox(value, container, colorClass) {
   // Evento al click
   box.addEventListener("click", function () {
     // Mostra il risultato
-    resultDiv.textContent = `Hai trovato: "${value}"!`;
+    // resultDiv.textContent = `Hai trovato: "${value}"!`;
 
     // Rimuovi il premio dai rimanenti
     remainingPrizes = remainingPrizes.filter(prize => prize != value);
     updateRemainingPrizes();
 
-    // Animazione se il premio è rosso
-    if (colorClass === "red") {
-      showFullscreenPrize(value);
-    }
+    // Animazione
+    showFullscreenPrize(value);
 
     // Distruggi il pacco cliccato
     setTimeout(() => box.remove(), 2000); // Attende la fine dell'animazione per i rossi
